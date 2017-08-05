@@ -5,6 +5,7 @@
     "test": "ava"
   },
   "dependencies": {
+    "history": "^4.6.3",
     "junctions": "^0.3.6",
     "lodash": "^4.17.4",
     "react": "^15.6.1",

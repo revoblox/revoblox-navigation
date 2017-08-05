@@ -1,6 +1,5 @@
 import test from 'ava'
-import Route from 'react-junctions'
-import { transformObjects, extractLabelValues } from '../src/utils'
+import { extractLabelValues } from '../src/utils'
 
 test('not much', t => {
   // console.log(Route)
