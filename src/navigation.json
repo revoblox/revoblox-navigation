@@ -1,0 +1,27 @@
+{
+  "blocks": "#blocks",
+  "items": {
+    "tools": {
+      "axes": {
+        "iron_axe": "#items/tools/axes/iron_axe",
+        "wood_axe": "#items/tools/axes/wood_axe"
+      }
+    },
+    "armor": {
+      "helmet": {
+        "iron_helmet": "#armor/helmet/iron_helmet",
+        "golden_helmet": "#armor/helmet/golden_helmet"
+      }
+    },
+    "weapons": {
+      "swords": {
+        "diamond_sword": "#weapons/swords/diamond_sword"
+      }
+    }
+  },
+  "players": "#players",
+  "mobs": {
+    "cow": "#mobs/cow",
+    "chicken": "#mobs/chicken"
+  }
+}

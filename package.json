@@ -1,0 +1,63 @@
+{
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack",
+    "test": "ava"
+  },
+  "dependencies": {
+    "junctions": "^0.3.6",
+    "lodash": "^4.17.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-junctions": "^0.3.6"
+  },
+  "devDependencies": {
+    "ava": "^0.21.0",
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1"
+  },
+  "name": "revoblox-navigation",
+  "description": "",
+  "version": "hexagon6-alpha",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/revoblox/revoblox-navigation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/revoblox/revoblox-navigation/issues"
+  },
+  "homepage": "https://github.com/revoblox/revoblox-navigation#readme",
+  "peerDependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions"
+            ]
+          },
+          "node": "current"
+        }
+      ],
+      "react"
+    ]
+  },
+  "ava": {
+    "files": "tests/**/*.js",
+    "require": "babel-register",
+    "babel": "inherit"
+  }
+}
