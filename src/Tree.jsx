@@ -1,3 +1,5 @@
+import React from 'react'
+import { Link } from 'react-junctions'
 import { green, brown } from './colors'
 
 const Tree = ({tree}) => {
