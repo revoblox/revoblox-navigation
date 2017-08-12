@@ -1,5 +1,5 @@
 import test from 'ava'
-import { extractLabelValues } from '../src/utils'
+import { extractLabelValues, arrToArrObj } from '../src/utils'
 
 test('not much', t => {
   // console.log(Route)
@@ -7,37 +7,59 @@ test('not much', t => {
   t.pass()
 })
 
+test('arrToArrObj', t => {
+  t.deepEqual(arrToArrObj(['a', 'b']),
+    [
+      { label: 'a' },
+      { label: 'b' }
+    ])
+})
+
 test('extraLabelValues', t => {
   t.deepEqual(
-    extractLabelValues({ a: 'b'}),
+    extractLabelValues({ a: {} }),
     [
-      { label: 'a', value: 'b' }
+      { label: 'a' }
     ]
   )
   t.deepEqual(
-    extractLabelValues({ a: 'b', c: 'd'}),
+    extractLabelValues({ a: {}, c: {}}),
     [
-      { label: 'a', value: 'b' },
-      { label: 'c', value: 'd' },
+      { label: 'a' },
+      { label: 'c' },
     ]
   )
   t.deepEqual(
-    extractLabelValues({ a: 'b', c: { d: 'e' }}),
+    extractLabelValues({ a: {}, c: { d: {} }}),
     [
-      { label: 'a', value: 'b' },
-      { label: 'c', children: [{ label: 'd', value: 'e'}]}
+      { label: 'a' },
+      { label: 'c', children: [{ label: 'd'}]}
     ]
   )
   t.deepEqual(
-    extractLabelValues({ a: { b: 'f'}, c: { d: 'e' }}),
+    extractLabelValues({ a: { b: {}}, c: { d: {} }}),
     [
       { label: 'a', children: [
-        { label: 'b', value: 'f' }
+        { label: 'b' }
         ]
       },
       { label: 'c', children: [
-        { label: 'd', value: 'e'}
+        { label: 'd' }
       ]}
     ]
+  )
+  t.deepEqual(
+    extractLabelValues({ m: ['n', 'o'] }),
+    [{
+      label: 'm',
+      children: [
+        {
+          label: 'n'
+        },
+        {
+          label: 'o'
+        }
+      ]
+    }] 
   )
 })

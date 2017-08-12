@@ -1,36 +1,40 @@
 import React from 'react'
 import { createJunction } from 'junctions'
 import { Link } from 'react-junctions'
-import { Topics as Topic } from '../pages'
+import { Component as Topic } from './index'
 
 const junction = createJunction({
-  details: {
+  topics: {
     path: '/:id',
     paramTypes: {
       id: { required: true },
     }
-  },
+  }
 })
+
+const root = 'topics'
 
 const config = [
   {
-    root: 'details',
+    root,
     options: { id: 'rendering' },
     linkcontent: 'Rendering with React!'
   },
   {
-    root: 'details',
+    root,
     options: { id: 'components' },
     linkcontent: 'Components'
   },
   {
-    root: 'details',
+    root,
     options: { id: 'props-v-state' },
     linkcontent: 'Props v. State'
   }
 ]
 
 const TopicsScreen = ({ route, locate }) => {
+  console.log('route')
+  console.log(route)
   return (
     <div>
       <h2>Topics</h2>

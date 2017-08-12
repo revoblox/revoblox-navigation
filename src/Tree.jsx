@@ -1,19 +1,30 @@
 import React from 'react'
+import { createJunction } from 'junctions'
 import { Link } from 'react-junctions'
 import { green, brown } from './colors'
 
-const Tree = ({tree}) => {
+const Tree = ({junction, tree, route, locate}) => {
   return <ul>
     { tree
-      .map(({label, value, children}, i) =>
-      (!children)
-        ? <li style={{backgroundColor: green, listStyle: 'url'}} key={i}>
-            <Link to={{ pathname: value }}>{label}</Link>
-          </li>
-        : <li style={{backgroundColor: brown, listStyle: 'url'}} key={i}>
-            {label}
-            <Tree tree={children} />
-          </li>
+      .map(({label, children}, i) => {
+      return (
+        <li style={{backgroundColor: green, listStyle: 'url'}} key={i}>
+          { junction && locate && label && (label !== 'home') &&
+          <Link to={locate(junction.createRoute(label))}>{label}</Link>
+          }
+          { (!junction || label === "home") && locate &&
+          <Link to={locate()}>{label}</Link>
+          }
+        { children && route && (label === route.key) &&
+            <Tree
+              tree={children}
+              junction={route.next}
+              locate={route.locate}
+            />
+        }
+        </li>
+      )
+      }
     )}
   </ul>
 }
